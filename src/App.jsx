@@ -296,13 +296,20 @@ const HeroSection = () => (
         <motion.div 
              className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl -z-10"
              animate={{ x: [0, -20, 0], y: [0, 20, 0]}}
-            transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+            transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 2 }}    
         />
         <motion.div className="flex-1 text-center md:text-left relative z-20" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
             <p className="text-xl text-indigo-600 dark:text-indigo-300">Hello, I'm</p>
-            <h1 className="text-5xl md:text-7xl font-extrabold my-2"><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500">Jane Doe</span></h1>
+            <h1 className="text-5xl md:text-7xl font-extrabold my-2"><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500">Mohit Chandra <p className="text-xl text-indigo-600 dark:text-indigo-300">Joshi</p> </span></h1>
             <h2 className="text-3xl md:text-4xl font-semibold"><TypingAnimation roles={roles} /></h2>
-            <p className="mt-6 text-gray-600 dark:text-gray-300 max-w-xl mx-auto md:mx-0">I craft beautiful, responsive websites with a passion for creating engaging user experiences.</p>
+            
+            <div class="mt-6 text-gray-600 dark:text-gray-300 max-w-xl mx-auto md:mx-0">
+    <ul class="list-disc list-inside space-y-2">
+        <li>A passionate Data Scientist transforming data into actionable insights and building intelligent solutions.</li>
+        <li>Craft beautiful, responsive websites with modern technologies and a passion for creating engaging user experiences.</li>
+    </ul>
+</div>
+            
             <div className="mt-12 flex justify-center md:justify-start items-center gap-4">
                 {socialLinks.map(link =>
                     <a key={link.name} href={link.url} aria-label={link.name} target="_blank" rel="noopener noreferrer" className={`relative group p-3 rounded-full text-white transition-all duration-300 hover:scale-110 hover:shadow-lg ${link.color}`} {...(link.download && { download: true })}>
@@ -317,7 +324,7 @@ const HeroSection = () => (
                 <div className="absolute -inset-4 bg-gradient-to-br from-indigo-400/30 to-pink-400/30 dark:from-indigo-500/30 dark:to-pink-500/30 rounded-full blur-2xl opacity-75 animate-pulse"></div>
                 <motion.div className="absolute w-20 h-20 bg-indigo-400/30 dark:bg-indigo-500/30 rounded-full -top-4 -left-4" animate={{ y: [0, 10, 0], x: [0, -5, 0] }} transition={{ duration: 5, repeat: Infinity }}></motion.div>
                 <motion.div className="absolute w-24 h-24 bg-pink-400/30 dark:bg-pink-500/30 rounded-full -bottom-4 -right-4" animate={{ y: [0, -10, 0], x: [0, 5, 0] }} transition={{ duration: 6, repeat: Infinity, delay: 1 }}></motion.div>
-                <motion.img src="https://source.unsplash.com/400x400/?woman,portrait,professional" alt="Jane Doe Profile" className="relative w-full h-full object-cover rounded-full border-4 border-gray-200 dark:border-gray-800 shadow-2xl" animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
+                <motion.img src="pfp.png" alt="Jane Doe Profile" className="relative w-full h-full object-cover rounded-full border-4 border-gray-200 dark:border-gray-800 shadow-2xl" animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
             </div>
         </motion.div>
     </section>
