@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
-import useMousePosition from "./hooks/useMousePosition";
+import useMousePosition from "/src/hooks/useMousePosition.js";
 
 // Component Imports
-import Header from "./components/Header";
-import MobileNav from "./components/MobileNav";
-import ParticleCanvas from "./components/ParticleCanvas";
-import FloatingNav from "./components/FloatingNav";
-import HeroSection from "./components/HeroSection";
-import SkillsSection from "./components/SkillsSection";
-import EducationSection from "./components/EducationSection";
-import ProjectsSection from "./components/ProjectsSection";
-import CertificationsSection from "./components/CertificationsSection";
-import InternshipsSection from "./components/InternshipsSection";
-import ContactSection from "./components/ContactSection";
+import Header from "/src/components/Header.jsx";
+import MobileNav from "/src/components/MobileNav.jsx";
+import ParticleCanvas from "/src/components/ParticleCanvas.jsx";
+import FloatingNav from "/src/components/FloatingNav.jsx";
+import HeroSection from "/src/components/HeroSection.jsx";
+import SkillsSection from "/src/components/SkillsSection.jsx";
+import EducationSection from "/src/components/EducationSection.jsx";
+import ProjectsSection from "/src/components/ProjectsSection.jsx";
+import CertificationsSection from "/src/components/CertificationsSection.jsx";
+import InternshipsSection from "/src/components/InternshipsSection.jsx";
+import ContactSection from "/src/components/ContactSection.jsx";
 
 export default function App() {
     const [activeSection, setActiveSection] = useState('about');
@@ -71,7 +71,7 @@ export default function App() {
         setRipple({ x: clientX, y: clientY, id: Date.now() });
         setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
     };
-
+    
     return (
         <div className="bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-200 antialiased font-sans overflow-x-hidden">
             <motion.div className="fixed top-0 left-0 right-0 h-1 bg-indigo-500 origin-left z-50" style={{ scaleX }} />
@@ -87,12 +87,16 @@ export default function App() {
             <Header 
                 handleThemeTransition={handleThemeTransition} 
                 theme={theme} 
-                onMenuToggle={() => setIsMenuOpen(true)} 
+                onMenuClick={() => setIsMenuOpen(true)}
             />
-            <MobileNav isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+            <MobileNav 
+                isOpen={isMenuOpen} 
+                onClose={() => setIsMenuOpen(false)}
+                activeSection={activeSection}
+            />
 
             <div className="relative z-10">
-                <main className="pb-24">
+                <main className="pb-24 md:pb-0">
                     <HeroSection />
                     <SkillsSection />
                     <EducationSection />
