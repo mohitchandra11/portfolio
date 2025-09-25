@@ -6,7 +6,7 @@ import { ArrowDown } from 'lucide-react';
 
 const HeroSection = () => (
     // Added extra top padding 'pt-12' for mobile to push content down
-    <section id="about" className="min-h-screen px-6 sm:px-12 md:px-24 flex flex-col-reverse md:flex-row items-center justify-start md:justify-center gap-12 relative overflow-hidden pt-12 md:pt-0 pb-28 md:pb-24">
+    <section id="about" className="min-h-screen px-6 sm:px-12 md:px-24 flex flex-col-reverse md:flex-row items-center justify-start md:justify-center gap-12 relative overflow-hidden pt-20 md:pt-0 pb-28 md:pb-24">
         {/* Background elements remain unchanged */}
         <motion.div 
             className="absolute -top-40 -right-40 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl -z-10"
