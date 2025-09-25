@@ -1,12 +1,11 @@
 import React from 'react';
 import { Sun, Moon, Menu } from 'lucide-react';
-import { portfolioOwner } from '/src/data/portfolioData.jsx';
+import { portfolioOwner } from '../data/portfolioData.jsx';
 
-// Renamed prop to 'onMenuClick' to match App.jsx
 const Header = ({ onMenuClick, handleThemeTransition, theme }) => {
     return (
-        // Removed 'sticky' and 'top-0' to make it scrollable
-        <div className="md:hidden z-40 bg-white/80 dark:bg-black/80 backdrop-blur-lg">
+        // Re-added 'sticky' and 'top-0' to make the header unscrollable
+        <div className="md:hidden sticky top-0 z-40 bg-white/80 dark:bg-black/80 backdrop-blur-lg">
             <header className="container mx-auto px-6 py-4 flex justify-between items-center">
                 <a href="#about" className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
                     {portfolioOwner.name}
@@ -25,3 +24,5 @@ const Header = ({ onMenuClick, handleThemeTransition, theme }) => {
 };
 
 export default Header;
+
+

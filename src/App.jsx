@@ -46,6 +46,18 @@ export default function App() {
         }
     }, [theme]);
     
+    // Effect to block body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => { // Cleanup function
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMenuOpen]);
+    
     // Effect for scroll-based active section highlighting
     useEffect(() => {
         const sections = Array.from(document.querySelectorAll("section[id]"));

@@ -1,13 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { portfolioOwner, socialLinks, roles } from '/src/data/portfolioData.jsx';
+import { portfolioOwner, socialLinks, roles } from '../data/portfolioData.jsx';
 import TypingAnimation from './TypingAnimation.jsx';
 import { ArrowDown } from 'lucide-react';
 
 const HeroSection = () => (
-    // Re-adjusting padding for mobile (pt-8) vs desktop (pt-0)
     <section id="about" className="min-h-screen px-6 sm:px-12 md:px-24 flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden pt-8 md:pt-0 pb-12 md:pb-24">
-        {/* Background elements remain unchanged */}
+        {/* Background elements */}
         <motion.div 
             className="absolute -top-40 -right-40 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl -z-10"
             animate={{ x: [0, 20, 0], y: [0, -20, 0]}}
@@ -19,8 +18,8 @@ const HeroSection = () => (
             transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
 
-        {/* Ensured 'text-center' for mobile and 'md:text-left' for desktop */}
-        <motion.div className="flex-1 w-full text-center md:text-left relative z-20" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+        {/* Text content container: Changed to text-left for all screen sizes */}
+        <motion.div className="flex-1 w-full text-left relative z-20" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <p className="text-xl text-indigo-600 dark:text-indigo-300">Hello, I'm</p>
             <h1 className="text-5xl md:text-7xl font-extrabold my-2">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500">
@@ -30,13 +29,13 @@ const HeroSection = () => (
             </h1>
             <h2 className="text-3xl md:text-4xl font-semibold"><TypingAnimation roles={roles} /></h2>
             
-            <div className="mt-6 text-gray-600 dark:text-gray-300 max-w-xl mx-auto md:mx-0 space-y-2">
+            <div className="mt-6 text-gray-600 dark:text-gray-300 max-w-xl md:mx-0 space-y-2">
                 <p>A passionate Data Scientist transforming data into actionable insights and building intelligent solutions.</p>
                 <p>Craft beautiful, responsive websites with modern technologies and a passion for creating engaging user experiences.</p>
             </div>
             
-             {/* Ensured 'justify-center' for mobile and 'md:justify-start' for desktop */}
-            <div className="mt-12 flex justify-center md:justify-start items-center gap-4">
+            {/* Social links container: Changed to justify-start for all screen sizes */}
+            <div className="mt-12 flex justify-start items-center gap-4">
                 {socialLinks.map(link =>
                     <a key={link.name} href={link.url} aria-label={link.name} target="_blank" rel="noopener noreferrer" className={`relative group p-3 rounded-full text-white transition-all duration-300 hover:scale-110 hover:shadow-lg ${link.color}`} {...(link.download && { download: true })}>
                         {link.icon}
@@ -46,16 +45,17 @@ const HeroSection = () => (
             </div>
         </motion.div>
         
+        {/* Profile image container */}
         <motion.div className="flex-1 flex justify-center" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <div className="relative w-64 h-64 md:w-80 md:h-80">
-                {/* ... (image and decorative elements remain the same) ... */}
                  <div className="absolute -inset-4 bg-gradient-to-br from-indigo-400/30 to-pink-400/30 dark:from-indigo-500/30 dark:to-pink-500/30 rounded-full blur-2xl opacity-75 animate-pulse"></div>
                 <motion.div className="absolute w-20 h-20 bg-indigo-400/30 dark:bg-indigo-500/30 rounded-full -top-4 -left-4" animate={{ y: [0, 10, 0], x: [0, -5, 0] }} transition={{ duration: 5, repeat: Infinity }}></motion.div>
                 <motion.div className="absolute w-24 h-24 bg-pink-400/30 dark:bg-pink-500/30 rounded-full -bottom-4 -right-4" animate={{ y: [0, -10, 0], x: [0, 5, 0] }} transition={{ duration: 6, repeat: Infinity, delay: 1 }}></motion.div>
                 <motion.img src="pfp.png" alt={`${portfolioOwner.name} Profile`} className="relative w-full h-full object-cover rounded-full border-2 border-blue-800 dark:border-blue-800 shadow-2xl" animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
             </div>
         </motion.div>
-        <a href="#skills" className="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 dark:text-gray-400 animate-bounce">
+        {/* Scroll Down Button: Increased bottom value to move it up */}
+        <a href="#skills" className="hidden md:block absolute bottom-28 left-1/2 -translate-x-1/2 text-gray-500 dark:text-gray-400 animate-bounce">
             <div className="flex flex-col items-center">
                 <span className="text-sm">Scroll Down</span>
                 <ArrowDown size={20} className="mt-1"/>
@@ -65,3 +65,4 @@ const HeroSection = () => (
 );
 
 export default HeroSection;
+
