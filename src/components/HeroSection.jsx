@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { portfolioOwner, socialLinks, roles } from '../data/portfolioData.jsx';
-import TypingAnimation from './TypingAnimation.jsx';
+import { portfolioOwner, socialLinks, roles } from '../data/portfolioData';
+import TypingAnimation from './TypingAnimation';
 import { ArrowDown } from 'lucide-react';
 
 const HeroSection = () => (
-    <section id="about" className="min-h-screen px-6 sm:px-12 md:px-24 flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden pt-8 md:pt-0 pb-12 md:pb-24">
-        {/* Background elements */}
+    // Added extra top padding 'pt-12' for mobile to push content down
+    <section id="about" className="min-h-screen px-6 sm:px-12 md:px-24 flex flex-col-reverse md:flex-row items-center justify-start md:justify-center gap-12 relative overflow-hidden pt-12 md:pt-0 pb-28 md:pb-24">
+        {/* Background elements remain unchanged */}
         <motion.div 
             className="absolute -top-40 -right-40 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl -z-10"
             animate={{ x: [0, 20, 0], y: [0, -20, 0]}}
@@ -18,7 +19,6 @@ const HeroSection = () => (
             transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
 
-        {/* Text content container: Changed to text-left for all screen sizes */}
         <motion.div className="flex-1 w-full text-left relative z-20" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <p className="text-xl text-indigo-600 dark:text-indigo-300">Hello, I'm</p>
             <h1 className="text-5xl md:text-7xl font-extrabold my-2">
@@ -29,32 +29,29 @@ const HeroSection = () => (
             </h1>
             <h2 className="text-3xl md:text-4xl font-semibold"><TypingAnimation roles={roles} /></h2>
             
-            <div className="mt-6 text-gray-600 dark:text-gray-300 max-w-xl md:mx-0 space-y-2">
+            <div className="mt-6 text-gray-600 dark:text-gray-300 max-w-xl space-y-2">
                 <p>A passionate Data Scientist transforming data into actionable insights and building intelligent solutions.</p>
                 <p>Craft beautiful, responsive websites with modern technologies and a passion for creating engaging user experiences.</p>
             </div>
             
-            {/* Social links container: Changed to justify-start for all screen sizes */}
             <div className="mt-12 flex justify-start items-center gap-4">
                 {socialLinks.map(link =>
                     <a key={link.name} href={link.url} aria-label={link.name} target="_blank" rel="noopener noreferrer" className={`relative group p-3 rounded-full text-white transition-all duration-300 hover:scale-110 hover:shadow-lg ${link.color}`} {...(link.download && { download: true })}>
                         {link.icon}
-                        <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none after:content-[''] after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-4 after:border-solid after:border-transparent after:border-t-gray-800">{link.name}</span>
+                        <span className="absolute bottom-full mb-2 left-1/2 -translate-x-12 whitespace-nowrap bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none after:content-[''] after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-4 after:border-solid after:border-transparent after:border-t-gray-800">{link.name}</span>
                     </a>
                 )}
             </div>
         </motion.div>
         
-        {/* Profile image container */}
         <motion.div className="flex-1 flex justify-center" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <div className="relative w-64 h-64 md:w-80 md:h-80">
-                 <div className="absolute -inset-4 bg-gradient-to-br from-indigo-400/30 to-pink-400/30 dark:from-indigo-500/30 dark:to-pink-500/30 rounded-full blur-2xl opacity-75 animate-pulse"></div>
+                <div className="absolute -inset-4 bg-gradient-to-br from-indigo-400/30 to-pink-400/30 dark:from-indigo-500/30 dark:to-pink-500/30 rounded-full blur-2xl opacity-75 animate-pulse"></div>
                 <motion.div className="absolute w-20 h-20 bg-indigo-400/30 dark:bg-indigo-500/30 rounded-full -top-4 -left-4" animate={{ y: [0, 10, 0], x: [0, -5, 0] }} transition={{ duration: 5, repeat: Infinity }}></motion.div>
                 <motion.div className="absolute w-24 h-24 bg-pink-400/30 dark:bg-pink-500/30 rounded-full -bottom-4 -right-4" animate={{ y: [0, -10, 0], x: [0, 5, 0] }} transition={{ duration: 6, repeat: Infinity, delay: 1 }}></motion.div>
                 <motion.img src="pfp.png" alt={`${portfolioOwner.name} Profile`} className="relative w-full h-full object-cover rounded-full border-2 border-blue-800 dark:border-blue-800 shadow-2xl" animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
             </div>
         </motion.div>
-        {/* Scroll Down Button: Increased bottom value to move it up */}
         <a href="#skills" className="hidden md:block absolute bottom-28 left-1/2 -translate-x-1/2 text-gray-500 dark:text-gray-400 animate-bounce">
             <div className="flex flex-col items-center">
                 <span className="text-sm">Scroll Down</span>
