@@ -116,4 +116,3 @@ export const navLinks = [
 ];
 
 export const roles = ["Developer", "Designer", "Engineer", "Data Scientist"];
-

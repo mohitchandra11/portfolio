@@ -28,4 +28,3 @@ const DockIcon = ({ link, activeSection, mousePosition, isHoveringDock }) => {
 };
 
 export default DockIcon;
-    
