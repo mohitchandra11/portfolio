@@ -1,31 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sun, Moon, Menu } from 'lucide-react';
-import { portfolioOwner } from '../data/portfolioData';
+import { portfolioOwner } from '../data/portfolioData.jsx';
 
-const Header = ({ handleThemeTransition, theme, onMenuToggle }) => {
+const Header = ({ onMenuClick, handleThemeTransition, theme }) => {
     return (
-        <header className="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-black/80 backdrop-blur-lg">
-            <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                <motion.div 
-                    className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
+        // This div hides the entire header on medium screens and up (md:hidden)
+        <div className="md:hidden sticky top-0 z-40 bg-white/80 dark:bg-black/80 backdrop-blur-lg">
+            <header className="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#about" className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">
                     {portfolioOwner.name}
-                </motion.div>
-                <div className="flex items-center gap-4">
-                     <button onClick={handleThemeTransition} aria-label="Toggle Theme" title="Toggle Theme" className="relative group p-2 rounded-full transition-colors text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800">
+                </a>
+                <div className="flex items-center gap-2">
+                    {/* Added background and padding for a "boxed" look */}
+                    <button onClick={handleThemeTransition} aria-label="Toggle Theme" title="Toggle Theme" className="p-2 rounded-lg transition-colors bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700">
                         {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
                     </button>
-                    <button onClick={onMenuToggle} aria-label="Open Menu" className="md:hidden p-2 rounded-full transition-colors text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800">
-                        <Menu size={22} />
+                    {/* Added background and padding for a "boxed" look */}
+                    <button onClick={onMenuClick} aria-label="Open Menu" title="Open Menu" className="p-2 rounded-lg transition-colors bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <Menu size={20} />
                     </button>
                 </div>
-            </div>
-        </header>
+            </header>
+        </div>
     );
 };
 
