@@ -5,7 +5,7 @@ import TypingAnimation from '/src/components/TypingAnimation.jsx';
 import { ArrowDown } from 'lucide-react';
 
 const HeroSection = () => (
-    <section id="about" className="min-h-screen px-6 sm:px-12 md:px-24 flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden pt-24 md:pt-0 pb-12 md:pb-24">
+    <section id="about" className="min-h-screen px-6 sm:px-12 md:px-24 flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden pt-5 md:pt-0 pb-12 md:pb-24">
         {/* Background elements */}
         <motion.div 
             className="absolute -top-40 -right-40 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl -z-10"
