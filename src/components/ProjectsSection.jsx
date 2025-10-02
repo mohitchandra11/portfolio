@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import SectionHeader from './SectionHeader';
+import SectionHeader from './SectionHeader.jsx';
 import { projectsData } from '../data/portfolioData.jsx';
 
 const ProjectsSection = () => {
@@ -37,3 +37,4 @@ const ProjectsSection = () => {
 };
 
 export default ProjectsSection;
+

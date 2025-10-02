@@ -1,34 +1,80 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Sun, Moon } from 'lucide-react';
 import { navLinks } from '../data/portfolioData.jsx';
-import DockIcon from './DockIcon';
+import DockIcon from './DockIcon.jsx';
+import { Sun, Moon } from 'lucide-react';
 
-const FloatingNav = ({ activeSection, mousePosition, handleThemeTransition, theme }) => {
+const FloatingNav = ({ 
+    activeSection, 
+    mousePosition, 
+    handleThemeTransition, 
+    theme, 
+    resumeJustDownloaded, 
+    onResumeDownload,
+    onResetResumeStatus 
+}) => {
     const [isHoveringDock, setIsHoveringDock] = useState(false);
+
+    const mainLinks = navLinks.filter(link => link.id !== 'resume');
+    const resumeLink = navLinks.find(link => link.id === 'resume');
+    
+    // Determine the tooltip text based on the download state
+    const resumeTooltipText = resumeJustDownloaded ? 'Resume Downloaded!' : 'Download Resume';
+
+    const handleMouseLeave = () => {
+        setIsHoveringDock(false);
+        // Reset the download status when the mouse leaves the entire nav bar
+        onResetResumeStatus();
+    };
+
     return (
-        <motion.nav
-            className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50"
-            onHoverStart={() => setIsHoveringDock(true)}
-            onHoverEnd={() => setIsHoveringDock(false)}
+        <nav 
+            className="hidden md:block fixed bottom-8 left-1/2 -translate-x-1/2 z-50"
+            onMouseEnter={() => setIsHoveringDock(true)}
+            onMouseLeave={handleMouseLeave}
         >
-            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border border-gray-200 dark:border-gray-700 rounded-full flex items-end gap-1 p-2 shadow-lg">
-                {navLinks.map((link) => (
-                    <React.Fragment key={link.id}>
-                        <DockIcon link={link} activeSection={activeSection} mousePosition={mousePosition} isHoveringDock={isHoveringDock} />
-                        {link.id === 'contact' && <span className="text-gray-400 dark:text-gray-600 mx-1 self-center h-6 border-l border-gray-300 dark:border-gray-700"></span>}
-                    </React.Fragment>
+            <div className="mx-auto flex h-[60px] w-max items-center gap-3 rounded-2xl bg-gray-900/60 px-4 py-3 backdrop-blur-lg border border-white/10 shadow-2xl">
+                {mainLinks.map((link) => (
+                    <DockIcon 
+                        key={link.id}
+                        link={link} 
+                        activeSection={activeSection} 
+                        mousePosition={mousePosition}
+                        isHoveringDock={isHoveringDock}
+                    />
                 ))}
-                <span className="text-gray-400 dark:text-gray-600 mx-1 self-center h-6 border-l border-gray-300 dark:border-gray-700"></span>
-                <button onClick={handleThemeTransition} aria-label="Toggle Theme" title="Toggle Theme" className="relative group p-3 rounded-full transition-colors self-center text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white">
-                    {theme === 'dark' ? <Sun size={22} /> : <Moon size={22} />}
-                    <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none after:content-[''] after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-4 after:border-solid after:border-transparent after:border-t-gray-800">
-                        Toggle Theme
-                    </span>
-                </button>
+                
+                <div className="w-px h-6 bg-gray-300/50 self-center mx-1"></div>
+                
+                {resumeLink && (
+                     <DockIcon 
+                        key={resumeLink.id}
+                        link={{...resumeLink, label: resumeTooltipText }}
+                        activeSection={null}
+                        mousePosition={mousePosition}
+                        isHoveringDock={isHoveringDock}
+                        onClick={onResumeDownload}
+                    />
+                )}
+                
+                <div className="w-px h-6 bg-gray-300/50 self-center mx-1"></div>
+
+                <DockIcon 
+                    link={{ 
+                        id: 'theme-toggle', 
+                        label: 'Toggle Theme', 
+                        icon: theme === 'dark' 
+                            ? <Sun size={20} className="text-amber-500" /> 
+                            : <Moon size={20} /> 
+                    }}
+                    activeSection={null}
+                    mousePosition={mousePosition}
+                    isHoveringDock={isHoveringDock}
+                    onClick={handleThemeTransition}
+                />
             </div>
-        </motion.nav>
+        </nav>
     );
 };
 
 export default FloatingNav;
+

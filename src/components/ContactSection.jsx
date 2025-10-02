@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import SectionHeader from './SectionHeader';
-import { portfolioOwner, socialLinks } from '../data/portfolioData';
+import SectionHeader from './SectionHeader.jsx';
+import { portfolioOwner, socialLinks } from '../data/portfolioData.jsx';
 
 const ContactSection = () => {
     const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
@@ -22,8 +22,6 @@ const ContactSection = () => {
             setTimeout(() => setFormError(''), 3000);
             return;
         }
-        // In a real application, you would handle the form submission here
-        // e.g., send the data to a server or an email service.
         console.log("Form submitted successfully:", contactForm);
         setFormSuccess("Thank you for your message! I'll get back to you soon.");
         setContactForm({ name: '', email: '', message: '' });
@@ -55,9 +53,7 @@ const ContactSection = () => {
                         <textarea name="message" placeholder="Your Message" rows="5" value={contactForm.message} onChange={handleInputChange} className="w-full p-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
                         {formError && <p className="text-red-500 text-sm text-center">{formError}</p>}
                         {formSuccess && <p className="text-green-500 text-sm text-center">{formSuccess}</p>}
-                        <div>
-                            <button type="submit" className="w-full p-3 bg-indigo-600 text-white rounded-md font-semibold hover:bg-indigo-700 transition">Send Message</button>
-                        </div>
+                        <button type="submit" className="w-full p-3 bg-indigo-600 text-white rounded-md font-semibold hover:bg-indigo-700 transition">Send Message</button>
                     </motion.form>
                 </div>
             </div>

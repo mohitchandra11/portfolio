@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
-import SectionHeader from './SectionHeader';
-import { educationData } from '../data/portfolioData.jsx';
+import SectionHeader from '/src/components/SectionHeader.jsx';
+import { educationData } from '/src/data/portfolioData.jsx';
 
 const EducationSection = () => (
     <section id="education" className="py-20 md:py-24">
@@ -25,3 +25,4 @@ const EducationSection = () => (
 );
 
 export default EducationSection;
+

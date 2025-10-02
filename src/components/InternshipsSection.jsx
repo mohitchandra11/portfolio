@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SectionHeader from './SectionHeader';
-import Carousel from './Carousel';
+import SectionHeader from './SectionHeader.jsx';
+import Carousel from './Carousel.jsx';
 import { internshipsData } from '../data/portfolioData.jsx';
 
 const InternshipsSection = () => (
@@ -21,3 +21,4 @@ const InternshipsSection = () => (
 );
 
 export default InternshipsSection;
+

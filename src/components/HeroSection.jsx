@@ -1,13 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { portfolioOwner, socialLinks, roles } from '../data/portfolioData';
-import TypingAnimation from './TypingAnimation';
+import { portfolioOwner, socialLinks, roles } from '/src/data/portfolioData.jsx';
+import TypingAnimation from '/src/components/TypingAnimation.jsx';
 import { ArrowDown } from 'lucide-react';
 
 const HeroSection = () => (
-    // Added extra top padding 'pt-12' for mobile to push content down
-    <section id="about" className="min-h-screen px-6 sm:px-12 md:px-24 flex flex-col-reverse md:flex-row items-center justify-start md:justify-center gap-12 relative overflow-hidden pt-20 md:pt-0 pb-28 md:pb-24">
-        {/* Background elements remain unchanged */}
+    <section id="about" className="min-h-screen px-6 sm:px-12 md:px-24 flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden pt-24 md:pt-0 pb-12 md:pb-24">
+        {/* Background elements */}
         <motion.div 
             className="absolute -top-40 -right-40 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl -z-10"
             animate={{ x: [0, 20, 0], y: [0, -20, 0]}}
@@ -38,7 +37,7 @@ const HeroSection = () => (
                 {socialLinks.map(link =>
                     <a key={link.name} href={link.url} aria-label={link.name} target="_blank" rel="noopener noreferrer" className={`relative group p-3 rounded-full text-white transition-all duration-300 hover:scale-110 hover:shadow-lg ${link.color}`} {...(link.download && { download: true })}>
                         {link.icon}
-                        <span className="absolute bottom-full mb-2 left-1/2 -translate-x-12 whitespace-nowrap bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none after:content-[''] after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-4 after:border-solid after:border-transparent after:border-t-gray-800">{link.name}</span>
+                        <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none after:content-[''] after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-4 after:border-solid after:border-transparent after:border-t-gray-800">{link.name}</span>
                     </a>
                 )}
             </div>

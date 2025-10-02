@@ -1,10 +1,9 @@
 import React from 'react';
 import { Sun, Moon, Menu } from 'lucide-react';
-import { portfolioOwner } from '/src/data/portfolioData.jsx';
+import { portfolioOwner } from '../data/portfolioData.jsx';
 
 const Header = ({ onMenuClick, handleThemeTransition, theme }) => {
     return (
-        // Changed from 'sticky' to 'fixed' and added left-0 right-0 for full width
         <div className="md:hidden fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-black/80 backdrop-blur-lg">
             <header className="container mx-auto px-6 py-4 flex justify-between items-center">
                 <a href="#about" className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-transparent bg-clip-text">

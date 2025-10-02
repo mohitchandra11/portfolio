@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SectionHeader from './SectionHeader';
+import SectionHeader from './SectionHeader.jsx';
 import { skillSet } from '../data/portfolioData.jsx';
 
 const SkillsSection = () => (
@@ -27,3 +27,4 @@ const SkillsSection = () => (
 );
 
 export default SkillsSection;
+

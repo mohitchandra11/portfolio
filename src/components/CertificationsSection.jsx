@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SectionHeader from './SectionHeader';
-import Carousel from './Carousel';
-import { certificationsData } from '../data/portfolioData';
+import SectionHeader from './SectionHeader.jsx';
+import Carousel from './Carousel.jsx';
+import { certificationsData } from '../data/portfolioData.jsx';
 
 const CertificationsSection = () => (
     <section id="certifications" className="py-20 md:py-24">
@@ -21,3 +21,4 @@ const CertificationsSection = () => (
 );
 
 export default CertificationsSection;
+
