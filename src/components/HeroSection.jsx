@@ -5,16 +5,16 @@ import TypingAnimation from '/src/components/TypingAnimation.jsx';
 import { ArrowDown } from 'lucide-react';
 
 const HeroSection = () => (
-    <section id="about" className="min-h-screen px-6 sm:px-12 md:px-24 flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden pt-24 md:pt-0 pb-12 md:pb-24">
+    <section id="about" className="min-h-screen px-6 sm:px-12 md:px-24 flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden pt-5 md:pt-0 pb-12 md:pb-24">
         {/* Background elements */}
-        <motion.div 
+        <motion.div
             className="absolute -top-40 -right-40 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl -z-10"
-            animate={{ x: [0, 20, 0], y: [0, -20, 0]}}
+            animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
             transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
         />
-        <motion.div 
+        <motion.div
             className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl -z-10"
-            animate={{ x: [0, -20, 0], y: [0, 20, 0]}}
+            animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
             transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
 
@@ -22,17 +22,17 @@ const HeroSection = () => (
             <p className="text-xl text-indigo-600 dark:text-indigo-300">Hello, I'm</p>
             <h1 className="text-5xl md:text-7xl font-extrabold my-2">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500">
-                    {portfolioOwner.name} 
+                    {portfolioOwner.name}
                     <span className="block text-xl text-indigo-600 dark:text-indigo-300">({portfolioOwner.lastName})</span>
                 </span>
             </h1>
             <h2 className="text-3xl md:text-4xl font-semibold"><TypingAnimation roles={roles} /></h2>
-            
+
             <div className="mt-6 text-gray-600 dark:text-gray-300 max-w-xl space-y-2">
                 <p>A passionate Data Scientist transforming data into actionable insights and building intelligent solutions.</p>
                 <p>Craft beautiful, responsive websites with modern technologies and a passion for creating engaging user experiences.</p>
             </div>
-            
+
             <div className="mt-12 flex justify-start items-center gap-4">
                 {socialLinks.map(link =>
                     <a key={link.name} href={link.url} aria-label={link.name} target="_blank" rel="noopener noreferrer" className={`relative group p-3 rounded-full text-white transition-all duration-300 hover:scale-110 hover:shadow-lg ${link.color}`} {...(link.download && { download: true })}>
@@ -42,7 +42,7 @@ const HeroSection = () => (
                 )}
             </div>
         </motion.div>
-        
+
         <motion.div className="flex-1 flex justify-center" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <div className="relative w-64 h-64 md:w-80 md:h-80">
                 <div className="absolute -inset-4 bg-gradient-to-br from-indigo-400/30 to-pink-400/30 dark:from-indigo-500/30 dark:to-pink-500/30 rounded-full blur-2xl opacity-75 animate-pulse"></div>
@@ -54,11 +54,10 @@ const HeroSection = () => (
         <a href="#skills" className="hidden md:block absolute bottom-28 left-1/2 -translate-x-1/2 text-gray-500 dark:text-gray-400 animate-bounce">
             <div className="flex flex-col items-center">
                 <span className="text-sm">Scroll Down</span>
-                <ArrowDown size={20} className="mt-1"/>
+                <ArrowDown size={20} className="mt-1" />
             </div>
         </a>
     </section>
 );
 
 export default HeroSection;
-
