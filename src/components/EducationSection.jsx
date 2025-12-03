@@ -15,8 +15,8 @@ const EducationSection = () => (
                         <div className={`flex items-start md:items-center md:gap-8 ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
                             <div className="md:flex-1"></div>
                             <div className="absolute left-4 md:left-1/2 -translate-x-1/2 bg-gray-50 dark:bg-gray-900 border-2 border-indigo-500 rounded-full w-10 h-10 flex items-center justify-center z-10"><GraduationCap /></div>
-                            <div className="md:flex-1">
-                                <div className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
+                            <div className="flex-1">
+                                <div className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm w-full">
                                     <p className="text-sm text-indigo-600 dark:text-indigo-400">{item.duration}</p>
                                     <div className="flex justify-between items-start sm:items-center gap-2">
                                         <h3 className="text-lg font-bold mt-1">{item.title}</h3>
