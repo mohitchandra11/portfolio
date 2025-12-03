@@ -15,7 +15,27 @@ const EducationSection = () => (
                         <div className={`flex items-start md:items-center md:gap-8 ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
                             <div className="md:flex-1"></div>
                             <div className="absolute left-4 md:left-1/2 -translate-x-1/2 bg-gray-50 dark:bg-gray-900 border-2 border-indigo-500 rounded-full w-10 h-10 flex items-center justify-center z-10"><GraduationCap /></div>
-                            <div className="md:flex-1"><div className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm"><p className="text-sm text-indigo-600 dark:text-indigo-400">{item.duration}</p><h3 className="text-lg font-bold mt-1">{item.title}</h3><p className="text-sm font-semibold text-gray-500 dark:text-gray-400">{item.school}</p><p className="mt-2 text-gray-600 dark:text-gray-300 text-sm">{item.description}</p></div></div>
+                            <div className="md:flex-1">
+                                <div className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
+                                    <p className="text-sm text-indigo-600 dark:text-indigo-400">{item.duration}</p>
+                                    <div className="flex justify-between items-start sm:items-center gap-2">
+                                        <h3 className="text-lg font-bold mt-1">{item.title}</h3>
+                                        {item.grade && (
+                                            <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-bold px-2 py-1 rounded whitespace-nowrap mt-1 sm:mt-0">
+                                                {item.grade}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <p className="text-sm font-semibold text-gray-500 dark:text-gray-400">{item.school}</p>
+                                    <ul className="mt-2 text-gray-600 dark:text-gray-300 text-sm list-disc list-inside space-y-1">
+                                        {item.descBullets ? item.descBullets.map((point, i) => (
+                                            <li key={i}>{point}</li>
+                                        )) : (
+                                            <li>{item.description}</li>
+                                        )}
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
                 ))}

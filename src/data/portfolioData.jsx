@@ -9,11 +9,11 @@ import { Briefcase, Download, GraduationCap, Home, Code, Lightbulb, Send, Award,
 export const portfolioOwner = {
     name: "Mohit Chandra",
     lastName: "Joshi",
-    email: "mohit.joshi@example.com",
+    email: "mohitchandra117@gmail.com",
     resumeUrl: "/mohit-chandra-joshi-resume.pdf", // Example URL, replace with your actual resume link
     socials: {
-        linkedin: "https://www.linkedin.com/in/mohit-chandra-joshi/", // Example URL
-        github: "https://github.com/mohit-chandra-joshi", // Example URL
+        linkedin: "https://www.linkedin.com/in/mohit-chandra11", // Example URL
+        github: "https://github.com/mohitchandra11", // Example URL
     },
 };
 
@@ -106,9 +106,35 @@ export const socialLinks = [
 ];
 
 export const educationData = [
-    { title: 'B.Tech in Computer Science', school: 'University of Technology', duration: '2018 - 2022', description: 'Specialized in AI and Data Science.' },
-    { title: 'MPC Intermediate', school: 'Educare Junior College', duration: '2016 - 2018', description: 'Studied Mathematics, Physics, and Chemistry.' },
-    { title: 'SSC', school: 'Educare High School', duration: '2015 - 2016', description: 'Completed 10th standard with a strong academic record.' },
+    {
+        title: 'B.Tech in Computer Science',
+        school: 'Birla Institute of Applied Sciences',
+        duration: '2022 - 2026',
+        grade: 'CGPA: 8',
+        descBullets: [
+            'DSA, AI, ML, C++, Python',
+            'NSS Member'
+        ]
+    },
+    {
+        title: 'Intermediate',
+        school: 'Uttarakhand Board of School Education',
+        duration: '2019 - 2022',
+        grade: '87%',
+        descBullets: [
+            'Mathematics, Physics, Chemistry',
+            'Inspire Award'
+        ]
+    },
+    {
+        title: 'High School',
+        school: 'Uttarakhand Board of School Education',
+        duration: '2018 - 2020',
+        grade: '88%',
+        descBullets: [
+            'Completed 10th standard with a strong academic record'
+        ]
+    },
 ];
 
 export const projectsData = [
